@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patternbayes"
+version = "0.1.0"
+description = "A pedagogical Python library implementing algorithms from Bishop's Pattern Recognition and Machine Learning, with a Bayesian focus using PyTorch."
+readme = "README.md"  # Assuming we'll create this later
+license = {text = "MIT"}
+authors = [
+  { name="Your Name / Organization", email="your_email@example.com" },
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "torch>=1.12",  # Or specify a more recent version if needed
+]
+
+[project.urls]
+Homepage = "https://github.com/your_username/patternbayes" # Replace with actual URL later
+Repository = "https://github.com/your_username/patternbayes" # Replace with actual URL later
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "mypy>=0.9",
+    "ruff>=0.1",
+    "black>=23.0",
+    "coverage[toml]>=6.0",
+    "pytest-cov>=4.0",
+]
+docs = [
+    "sphinx>=5.0",
+    "sphinx-rtd-theme>=1.0", # Example theme
+    "nbsphinx>=0.8",
+    "matplotlib", # Often needed for docs/notebooks
+]
+
+# --- Tool Configurations ---
+# Example: Ruff configuration (can be expanded)
+[tool.ruff]
+line-length = 88
+select = ["E", "W", "F", "I", "UP", "C4", "B"] # Example selection based on black, isort, pyflakes etc.
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint.isort]
+known-first-party = ["patternbayes"]
+
+# Example: Mypy configuration (can be expanded)
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true # Start permissive, tighten later if needed
+# Add strict = true later for full enforcement
+
+# Example: Coverage configuration
+[tool.coverage.run]
+source = ["patternbayes"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+fail_under = 80 # Example coverage target
+show_missing = true 
